@@ -27,35 +27,69 @@
                                 <rect key="frame" x="353" y="733" width="31" height="30"/>
                                 <state key="normal" title="進む"/>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Vc-Go-yVR">
+                                <rect key="frame" x="87" y="344" width="240" height="128"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="7Vc-Go-yVR" secondAttribute="height" multiplier="15:8" id="pQ4-fk-gNV"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="lgd-Wn-vOu" appends="YES" id="CbI-aZ-LQg"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="7Vc-Go-yVR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="300" id="28m-lB-ORe"/>
                             <constraint firstItem="eQJ-SA-O1T" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="300" id="46k-6l-Rr4"/>
                             <constraint firstItem="eQJ-SA-O1T" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="BYv-3E-RIs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7Vc-Go-yVR" secondAttribute="trailing" constant="87" id="IaZ-m3-u5g"/>
                             <constraint firstItem="gNi-cO-5nm" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="300" id="OIc-If-6fM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="e6q-aW-OnL" secondAttribute="trailing" constant="30" id="X9C-kL-siR"/>
                             <constraint firstItem="e6q-aW-OnL" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="300" id="k6I-Fo-dpv"/>
                             <constraint firstItem="gNi-cO-5nm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="woT-Pq-Ihx"/>
+                            <constraint firstItem="7Vc-Go-yVR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="xVV-dS-NAn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="imageview" destination="7Vc-Go-yVR" id="jIj-VI-izg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="lgd-Wn-vOu">
+                    <connections>
+                        <action selector="segue:" destination="BYZ-38-t0r" id="b9P-gg-6gQ"/>
+                        <segue destination="ddH-O2-rgQ" kind="show" id="1Um-m7-M5G"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="139" y="138"/>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
-        <!--View Controller-->
+        <!--Tabview View Controller-->
         <scene sceneID="Dle-TV-CvD">
             <objects>
-                <viewController id="ddH-O2-rgQ" sceneMemberID="viewController">
+                <viewController id="ddH-O2-rgQ" customClass="tabviewViewController" customModule="slideshowApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IVD-B8-ETS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5T2-dC-zNV">
+                                <rect key="frame" x="192" y="627" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="戻る"/>
+                                <connections>
+                                    <segue destination="CCk-Im-rz2" kind="unwind" unwindAction="back:" id="U0z-N9-uEH"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="FCU-pK-ta4"/>
                     </view>
+                    <navigationItem key="navigationItem" id="eHR-Yd-hPH"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KHS-4B-Ts2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="CCk-Im-rz2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1010" y="138"/>
         </scene>
